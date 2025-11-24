@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ULYSE - Christos Doulkeridis | Coaching, Consulting, Mediating | Bruxelles - Athènes">
+    <meta name="keywords" content="coaching, consulting, médiation, négociation, Christos Doulkeridis, ULYSE, Bruxelles">
+    <meta name="author" content="Christos Doulkeridis">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="ULYSE - Christos Doulkeridis">
+    <meta property="og:description" content="Coaching • Consulting • Mediating - Votre odyssée vers des solutions innovantes">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://github.com/YOUR-USERNAME/ulyse-site/og-image.jpg">
+    
+    <title>ULYSE - Christos Doulkeridis | Coaching • Consulting • Mediating</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #6b8e4e;
+            --secondary-color: #d4e4bc;
+            --accent-color: #e85d2f;
+            --text-dark: #2c3e50;
+            --text-light: #fff;
+            --gray-light: #f8f9fa;
+            --gray-medium: #6c757d;
+            --ulyse-orange: #e85d2f;
+            --ulyse-green: #6b8e4e;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+        
+        /* Language Selector */
+        .language-selector {
+            position: absolute;
+            top: 1rem;
+            right: 2rem;
+            display: flex;
+            gap: 1rem;
+            z-index: 1000;
+        }
+        
+        .language-selector a {
+            text-decoration: none;
+            color: var(--text-dark);
+            padding: 0.3rem 0.8rem;
+            border: 2px solid transparent;
+            border-radius: 20px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .language-selector a:hover {
+            border-color: var(--ulyse-orange);
+        }
+        
+        .language-selector a.active {
+            background: var(--ulyse-orange);
+            color: white;
+        }
+        
+        /* Header et Navigation */
+        .header {
+            background: white;
+            color: var(--text-dark);
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo-ulyse {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+        
+        .logo-ulyse h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            margin: 0;
+            display: flex;
+        }
+        
+        .logo-u {
+            color: var(--ulyse-orange);
+            font-weight: 600;
+        }
+        
+        .logo-lyse {
+            color: var(--ulyse-green);
+            font-weight: 600;
+        }
+        
+        .logo-tagline {
+            display: flex;
+            flex-direction: column;
+            margin-left: 2rem;
+            padding-left: 2rem;
+            border-left: 2px solid var(--gray-light);
+            justify-content: center;
+        }
+        
+        .logo-tagline span {
+            font-size: 0.85rem;
+            color: var(--gray-medium);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.3;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--ulyse-orange);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--ulyse-orange);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Section Hero */
+        .hero {
+            background: var(--gray-light);
+            padding: 4rem 0;
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .hero-text h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .hero-text .subtitle {
+            font-size: 1.4rem;
+            color: var(--gray-medium);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+        
+        .hero-quote {
+            background: white;
+            padding: 2rem;
+            border-left: 4px solid var(--ulyse-orange);
+            margin: 2rem 0;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .hero-quote p {
+            font-style: italic;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+        }
+        
+        .hero-image {
+            position: relative;
+        }
+        
+        .experience-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .experience-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .experience-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .experience-item .number {
+            background: var(--ulyse-orange);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+        
+        /* Services */
+        .services {
+            padding: 4rem 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: var(--gray-light);
+            padding: 2rem;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .service-card p {
+            color: var(--gray-medium);
+            line-height: 1.6;
+        }
+        
+        /* Expertise */
+        .expertise {
+            background: var(--secondary-color);
+            padding: 4rem 0;
+        }
+        
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .expertise-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .expertise-list {
+            list-style: none;
+        }
+        
+        .expertise-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .expertise-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        
+        /* Approach */
+        .approach {
+            padding: 4rem 0;
+            background: white;
+        }
+        
+        .approach-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .approach-text h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .approach-values {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .value-item {
+            background: var(--gray-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: background 0.3s;
+        }
+        
+        .value-item:hover {
+            background: var(--secondary-color);
+        }
+        
+        .value-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Timeline */
+        .achievements {
+            background: var(--gray-light);
+            padding: 4rem 0;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .timeline-item {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            position: relative;
+            border-left: 3px solid var(--ulyse-orange);
+            margin-left: 20px;
+        }
+        
+        .timeline-item h4 {
+            color: var(--ulyse-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-period {
+            color: var(--ulyse-orange);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        /* Contact */
+        .contact {
+            background: linear-gradient(135deg, var(--ulyse-green) 0%, #7fa55f 100%);
+            color: var(--text-light);
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .contact h2 {
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .contact-item a {
+            color: var(--text-light);
+            text-decoration: none;
+        }
+        
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            margin-top: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: 600;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: var(--text-light);
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content,
+            .approach-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .hero-text h2 {
+                font-size: 1.8rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .logo-ulyse {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .logo-ulyse h1 {
+                font-size: 2.5rem;
+            }
+            
+            .logo-tagline {
+                margin-left: 0;
+                padding-left: 0;
+                border-left: none;
+                border-top: 2px solid var(--gray-light);
+                margin-top: 0.5rem;
+                padding-top: 0.5rem;
+                display: flex;
+                flex-direction: row;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                justify-content: center;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .language-selector {
+                position: relative;
+                top: 0;
+                right: 0;
+                margin-bottom: 1rem;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <a href="#" class="active">FR</a>
+        <a href="#">EN</a>
+        <a href="#">ΕΛ</a>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo-ulyse">
+                    <h1><span class="logo-u">u</span><span class="logo-lyse">lyse</span></h1>
+                    <div class="logo-tagline">
+                        <span>Coaching</span>
+                        <span>Consulting</span>
+                        <span>Mediating</span>
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#expertise">Expertise</a></li>
+                        <li><a href="#approach">Approche</a></li>
+                        <li><a href="#achievements">Parcours</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2>Christos Doulkeridis<br><span style="color: var(--ulyse-orange); font-size: 1.8rem;">Fondateur d'ULYSE</span></h2>
+                    <p class="subtitle">Coaching • Consulting • Mediating</p>
+                    <div class="hero-quote">
+                        <p>"Heureux qui comme Ulysse a fait un bon voyage... vers soi. ULYSE, c'est <strong style="color: var(--ulyse-orange);">U</strong> (vous) + <strong style="color: var(--ulyse-green);">LYSE</strong> (la solution en grec). Ensemble, nous trouvons VOS solutions pour naviguer dans la complexité du monde moderne."</p>
+                    </div>
+                    <p>Fort de plus de 30 ans d'expérience en gestion publique, négociation institutionnelle et résolution de conflits, j'accompagne les organisations et les individus dans leurs transformations les plus ambitieuses.</p>
+                </div>
+                <div class="hero-image">
+                    <div class="experience-card">
+                        <h3>Une expertise reconnue</h3>
+                        <div class="experience-item">
+                            <div class="number">30+</div>
+                            <span>Années d'expérience en leadership</span>
+                        </div>
+                        <div class="experience-item">
+                            <div class="number">6</div>
+                            <span>Négociations institutionnelles majeures</span>
+                        </div>
+                        <div class="experience-item">
+                            <div class="number">100+</div>
+                            <span>Médiations et résolutions de conflits</span>
+                        </div>
+                        <div class="experience-item">
+                            <div class="number">4</div>
+                            <span>Langues maîtrisées</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">L'approche ULYSE</h2>
+            <div style="max-width: 900px; margin: 0 auto 3rem; text-align: center;">
+                <p style="font-size: 1.2rem; line-height: 1.8; color: var(--gray-medium);">
+                    <strong style="color: var(--ulyse-green);">ULYSE</strong> incarne le voyage vers la découverte de solutions sur mesure. 
+                    Comme Ulysse qui a navigué avec sagesse à travers les défis de son odyssée, nous vous accompagnons dans votre parcours 
+                    vers la transformation. <span style="color: var(--ulyse-orange);"><strong>U</strong></span> pour <strong>vous</strong>, 
+                    <span style="color: var(--ulyse-green);"><strong>LYSE</strong></span> pour les <strong>solutions</strong> - 
+                    ensemble, nous traçons votre route vers le succès.
+                </p>
+            </div>
+            <h2 class="section-title">Nos Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h3>Consultance Stratégique</h3>
+                    <p>Accompagnement dans la définition et la mise en œuvre de stratégies organisationnelles, avec une expertise particulière dans le secteur public, les institutions hospitalières et les associations.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🤝</div>
+                    <h3>Médiation & Résolution de Conflits</h3>
+                    <p>Facilitation de dialogues constructifs et recherche de solutions consensuelles dans les situations de tension, avec une approche bienveillante et respectueuse de toutes les parties.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💬</div>
+                    <h3>Négociation Complexe</h3>
+                    <p>Conduite de négociations stratégiques, institutionnelles ou commerciales, avec une méthodologie éprouvée dans les contextes multiculturels et multi-acteurs.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚀</div>
+                    <h3>Coaching de Dirigeants</h3>
+                    <p>Accompagnement personnalisé de leaders et d'équipes dirigeantes dans leur développement professionnel, leur prise de décision et la gestion du changement.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎤</div>
+                    <h3>Communication & Influence</h3>
+                    <p>Développement de stratégies de communication, préparation à la prise de parole publique et gestion de situations de crise médiatique.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Gestion de Projets Complexes</h3>
+                    <p>Pilotage de projets d'envergure nécessitant coordination multi-acteurs, gestion budgétaire rigoureuse et vision stratégique à long terme.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise -->
+    <section id="expertise" class="expertise">
+        <div class="container">
+            <h2 class="section-title">Domaines d'Expertise</h2>
+            <div class="expertise-grid">
+                <div class="expertise-category">
+                    <h3>Secteur Public & Institutionnel</h3>
+                    <ul class="expertise-list">
+                        <li>Gouvernance publique et réformes institutionnelles</li>
+                        <li>Gestion de collectivités territoriales</li>
+                        <li>Relations avec les organisations syndicales</li>
+                        <li>Politiques publiques et budget</li>
+                        <li>Services d'urgence et sécurité</li>
+                    </ul>
+                </div>
+                <div class="expertise-category">
+                    <h3>Santé & Social</h3>
+                    <ul class="expertise-list">
+                        <li>Gestion hospitalière et transformation</li>
+                        <li>Politiques sociales et inclusion</li>
+                        <li>Questions de handicap et accessibilité</li>
+                        <li>Logement social et urbanisme</li>
+                        <li>Droits humains et égalité</li>
+                    </ul>
+                </div>
+                <div class="expertise-category">
+                    <h3>Éducation & Culture</h3>
+                    <ul class="expertise-list">
+                        <li>Enseignement supérieur et universités</li>
+                        <li>Politiques culturelles et audiovisuel</li>
+                        <li>Citoyenneté et philosophie</li>
+                        <li>Francophonie et multilinguisme</li>
+                        <li>Transmission et pédagogie</li>
+                    </ul>
+                </div>
+                <div class="expertise-category">
+                    <h3>International & Europe</h3>
+                    <ul class="expertise-list">
+                        <li>Relations Belgique-Grèce</li>
+                        <li>Affaires européennes</li>
+                        <li>Coopération internationale</li>
+                        <li>Contextes multiculturels</li>
+                        <li>Tourisme et attractivité territoriale</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Approach -->
+    <section id="approach" class="approach">
+        <div class="container">
+            <h2 class="section-title">La méthode ULYSE</h2>
+            <div class="approach-content">
+                <div class="approach-text">
+                    <h3>Naviguer vers vos solutions</h3>
+                    <p>Comme Ulysse qui a su naviguer entre les écueils de son odyssée, la méthode ULYSE combine sagesse ancestrale et innovation moderne. Notre philosophie s'inspire du "Fosbury-flop" : oser innover pour dépasser les limites conventionnelles.</p>
+                    <p>ULYSE, c'est l'alliance de <strong style="color: var(--ulyse-orange);">U</strong> (vous, votre unicité) et <strong style="color: var(--ulyse-green);">LYSE</strong> (la solution en grec). Chaque intervention est personnalisée, construite avec vous et pour vous, en mobilisant l'intelligence collective.</p>
+                    <div class="approach-values">
+                        <div class="value-item">
+                            <h4>Bienveillance</h4>
+                            <p>Respect et empathie au cœur de chaque interaction</p>
+                        </div>
+                        <div class="value-item">
+                            <h4>Innovation</h4>
+                            <p>Solutions créatives face aux défis complexes</p>
+                        </div>
+                        <div class="value-item">
+                            <h4>Rigueur</h4>
+                            <p>Méthodologie structurée et résultats mesurables</p>
+                        </div>
+                        <div class="value-item">
+                            <h4>Collaboration</h4>
+                            <p>Co-construction et intelligence collective</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3>Les atouts ULYSE</h3>
+                    <ul class="expertise-list">
+                        <li>Approche multiculturelle belgo-grecque</li>
+                        <li>Vision systémique des organisations</li>
+                        <li>Expertise en transformation publique et privée</li>
+                        <li>Maîtrise des négociations complexes multi-parties</li>
+                        <li>Gestion de crise et décision sous pression</li>
+                        <li>Construction de consensus durables</li>
+                        <li>Communication stratégique et influence éthique</li>
+                        <li>Leadership bienveillant et inclusif</li>
+                        <li>Innovation sociale et managériale</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements -->
+    <section id="achievements" class="achievements">
+        <div class="container">
+            <h2 class="section-title">Parcours & Réalisations</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-period">2018-2024</div>
+                    <h4>Bourgmestre de la commune d'Ixelles</h4>
+                    <p>Leadership d'une des communes les plus dynamiques de Bruxelles (87.000 habitants). Gestion de crises majeures (COVID-19, sécurité), modernisation des services publics, et développement de politiques innovantes en matière d'inclusion et de participation citoyenne.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-period">2014-2018</div>
+                    <h4>Chef de groupe parlementaire & Député</h4>
+                    <p>Direction du groupe ECOLO au Parlement de la Fédération Wallonie-Bruxelles. Contribution majeure à la mise en place du Cours de Citoyenneté et de Philosophie dans l'enseignement.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-period">2009-2014</div>
+                    <h4>Secrétaire d'État & Ministre-Président</h4>
+                    <p>Gestion du Logement et des Services d'urgence au niveau régional. Présidence du Gouvernement francophone bruxellois. Négociateur clé de la 6ème réforme de l'État belge.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-period">2004-2009</div>
+                    <h4>Président du Parlement francophone bruxellois</h4>
+                    <p>Direction des travaux parlementaires et représentation institutionnelle. Négociation de la constitution du gouvernement bruxellois.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-period">Réalisations notables</div>
+                    <h4>Administrateur et conseiller stratégique</h4>
+                    <p>• Administrateur des Hôpitaux Iris Sud (HIS)<br>
+                    • Administrateur de l'asbl Flagey<br>
+                    • Membre du Conseil d'Administration de l'ULB<br>
+                    • Président de la Haute École Lucia de Brouckère<br>
+                    • Administrateur Ethias Client Board</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Embarquez avec ULYSE</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Votre odyssée vers des solutions innovantes commence ici.</p>
+            <p>Vous avez un défi à relever ? Une négociation à mener ? Un conflit à résoudre ?<br>
+            Discutons de la façon dont ULYSE peut vous accompagner dans votre voyage.</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    📧 <a href="mailto:christos@doulkeridis.be">christos@doulkeridis.be</a>
+                </div>
+                <div class="contact-item">
+                    📱 <a href="tel:+32475751515">+32 475 75 15 15</a>
+                </div>
+                <div class="contact-item">
+                    📍 Bruxelles, Belgique | Athènes, Grèce
+                </div>
+            </div>
+            <a href="mailto:christos@doulkeridis.be?subject=Demande de consultation ULYSE" class="cta-button">Commencer votre voyage</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 ULYSE - Christos Doulkeridis | Coaching • Consulting • Mediating | Bruxelles - Athènes - International</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling pour les liens de navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animation au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Appliquer l'animation aux éléments
+        document.querySelectorAll('.service-card, .timeline-item, .expertise-category').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
